@@ -56,7 +56,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-df_reshaped = pd.read_csv('/Users/kshitizsahay/Documents/University of Chicago/ADSP 31008 Data Mining Principles/Project/Work/data/drought_dataset_sample_streamlit.csv')
+path = 'https://storage.googleapis.com/cropsafe-drought-prediction-data-store/'
+
+df_reshaped = pd.read_csv(path + 'data/drought_dataset_sample_streamlit.csv')
 
 def month_to_season(month):
     if month in [12, 1, 2]:

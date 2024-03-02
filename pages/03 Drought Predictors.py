@@ -15,10 +15,10 @@ import json
 import warnings
 warnings.filterwarnings('ignore')
 
-path = '/Users/kshitizsahay/Documents/University of Chicago/ADSP 31008 Data Mining Principles/Project/Work/'
+path = 'https://storage.googleapis.com/cropsafe-drought-prediction-data-store/'
 
-df = pd.read_csv('/Users/kshitizsahay/Documents/University of Chicago/ADSP 31008 Data Mining Principles/Project/Work/data/drought_dataset_sample_streamlit.csv')
-features_description = pd.read_csv('/Users/kshitizsahay/Documents/University of Chicago/ADSP 31008 Data Mining Principles/Project/Work/data/feature_list.csv', encoding = 'unicode_escape')
+df = pd.read_csv(path + 'data/drought_dataset_sample_streamlit.csv')
+features_description = pd.read_csv(path + 'data/feature_list.csv', encoding = 'unicode_escape')
 
 predictors = [
 'PRECTOT',

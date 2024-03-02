@@ -15,14 +15,23 @@ import plotly.figure_factory as ff
 
 import json
 
+import requests
+import io
+
 import warnings
 warnings.filterwarnings('ignore')
 
-path = '/Users/kshitizsahay/Documents/University of Chicago/ADSP 31008 Data Mining Principles/Project/Work/'
+path = 'https://storage.googleapis.com/cropsafe-drought-prediction-data-store/'
 
 model = 'model/random_forest_model_v3.pkl'
 
-loaded_model = pickle.load(open(path + model, 'rb'))
+pickle_file_url = 'https://storage.googleapis.com/cropsafe-drought-prediction-data-store/model/random_forest_model_v3.pkl'
+response = requests.get(pickle_file_url)
+response.raise_for_status()
+
+loaded_model = pickle.loads(response.content)
+
+#loaded_model = pickle.load(open(path + model, 'rb'))
 
 gdf = gpd.read_file(path + 'data/counties.geojson')
 gdf['county_fips'] = gdf['STATEFP'].astype(str) + gdf['COUNTYFP'].astype(str)
